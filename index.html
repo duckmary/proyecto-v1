@@ -5,11 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Proyecto V1</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .video-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        #btn-sonido {
+            background: #21808d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #btn-sonido:hover {
+            background: #1d7480;
+        }
+        #mi-video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Bienvenido a mi Proyecto V1</h1>
     <p>Este es mi primer proyecto con Git</p>
-    <p>Estoy realizando un cambio para ver como queda</p>
+    
+    <div class="video-container">
+        <video id="mi-video" width="640" controls autoplay loop muted playsinline>
+            <source src="Videos/VideoPagina1.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de vídeo.
+        </video>
+        
+        <button onclick="activarSonido()" id="btn-sonido">🔊 Activar Sonido</button>
+    </div>
+    
     <script src="script.js"></script>
+    
+    <script>
+        const video = document.getElementById('mi-video');
+        const btn = document.getElementById('btn-sonido');
+        
+        function activarSonido() {
+            video.muted = false;
+            btn.style.display = 'none';
+            video.play();
+        }
+    </script>
 </body>
 </html>
